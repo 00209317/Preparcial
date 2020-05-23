@@ -1,0 +1,51 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+<title>Contribuyentes</title>
+</head>
+<body>
+
+		<form th:action="@{/guardarContribuyente}"	th:object="${contribuyente}" method="post">
+
+			 <label for="cars">Seleccione:</label> 
+			<select th:field="*{importancia.c_importancia}">
+				<option th:each="option : ${importancias}"
+						th:value="${option.c_importancia}"
+						th:text="${option.s_importancia}"></option>
+			</select> 
+			
+			
+			<label for="fname">Nombre:</label> 
+			 	<input type="text" th:field="*{s_nombre}" placeholder="Ingrese su nombre" /><br> 
+			 	<span th:errors="*{s_nombre}" style="color: #E81505"></span><br>
+				
+			<label for="fapellido">Apellido:</label>
+				<input type="text" th:field="*{s_apellido}"	placeholder="Ingrese su apellido" /><br>
+				<span th:errors="*{s_apellido}" style="color: #E81505"></span><br>
+				
+				
+			<label for="fnit">NIT:</label>
+				<input type="text" th:field="*{s_nit}" placeholder="Ingrese su NIT" /><br>
+				<span th:errors="*{s_nit}" style="color: #E81505"></span><br>
+			
+			
+				
+				 <input type="submit"
+				value="Guardar Contribuyente" />
+
+			</div>
+
+		</form>
+	
+
+			<input type="submit" value="Listado Estudiantes" onclick="location.href='listado'" />
+
+
+</body>
+</html>
